@@ -472,6 +472,8 @@ class ProcessBL:
             resp.raise_for_status()
         except (ConnectionError, requests.exceptions.ConnectTimeout) as err:
             print(f"[Error] Connection Error: {err}")
+        except:
+            print("[Error] Unknown Error")
         else:
             soup = BeautifulSoup(resp.text, features="lxml")
             metadata = soup.find("meta")
